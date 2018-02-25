@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-function DBOpen($tables) {
+function DBOpen() {
     $config = parse_ini_file(__DIR__.'/../configuration/database.ini');
     
 
@@ -14,7 +14,7 @@ function DBOpen($tables) {
         $config['server'],
         $config['username'],
         $config['password'],
-        $tables
+        $config['database']
     );
     
     return $dbh;

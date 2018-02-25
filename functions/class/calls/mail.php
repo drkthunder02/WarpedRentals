@@ -59,4 +59,21 @@ class Mail extends \W4RP\ESI {
         
         return $this->GetESIData($url, $this->userAgent, $header);
     }
+    
+    public function SendMail($to, $toType, $from, $subject, $body, $approvedCost) {
+        $url = $this->prefix . $id . '/mail/?datasource=tranquility';
+        $header = 'Authorization: Bearer ' . $this->accessToken;
+        
+        $mail['recipients']['recipient_type'] = $toType;
+        $mail['recipients']['recipient_id'] = $to;
+        $mail['subject'] = $subject;
+        $mail['body'] = $body;
+        $mail['approved_cost'] = $approvedCost;
+        
+        $post = json_encode($mail);
+        
+        $error = $this->PostESIData($url, $this->userAgent, $header, $post);
+        
+        return $error;
+    }
 }

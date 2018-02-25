@@ -101,12 +101,13 @@ CREATE TABLE IF NOT EXISTS `Standings` (
 -- Table structure for 'MoonDrill'
 --
 
-CREATE TABLE IF NOT EXISTS `MoonDrill` (
+CREATE TABLE IF NOT EXISTS `MoonRental` (
     `StructureId` varchar(20),
     `Name` varchar(50),
     `MoonType` varchar(10),
     `StructureType` varchar(20),
     `Owner` varchar(100),
+    `Available` bool,
     `Composition1` varchar(100),
     `Composition2` varchar(100),
     `Composition3` varchar(100),
@@ -117,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `MoonDrill` (
     `CAmount4` decimal(5,2),
     `Price` decimal(20,2),
     `Renter` varchar(100),
+    `EndDate` varchar(50),
     PRIMARY KEY (`StructureId`),
     UNIQUE KEY `StructureId` (`StructureId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -133,6 +135,7 @@ CREATE TABLE IF NOT EXISTS `SystemRental` (
     `Available` bool,
     `Price` decimal(20,2),
     `Renter` varchar(100),
+    `EndDate` varchar(50),
     PRIMARY KEY (`SystemId`),
     UNIQUE KEY `SystemId` (`SystemId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
